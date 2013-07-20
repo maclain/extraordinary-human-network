@@ -1,4 +1,7 @@
 ExtraordinaryHumanNetwork::Application.routes.draw do
+  devise_for :humen
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -10,7 +13,10 @@ ExtraordinaryHumanNetwork::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
-  root :to => "home#index"
+  root :to => "static_pages#home"
+  
+  get 'home', to: 'home#index', as: :home
+
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

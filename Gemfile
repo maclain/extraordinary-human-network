@@ -13,8 +13,13 @@ gem 'devise'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
-  gem 'rspec-rails', '2.11.0'
+  gem 'rspec-rails'
   gem 'factory_girl_rails', '4.1.0'
+  gem 'launchy'
+  gem 'rb-inotify', :require => false
+  gem 'rb-fsevent', :require => false
+  gem 'rb-fchange', :require => false
+  gem 'guard-rspec' 
 end
 
 group :development do
@@ -37,7 +42,7 @@ end
 gem 'jquery-rails', '2.0.2'
 
 group :test do
-  gem 'capybara', '1.1.2'
+  gem 'capybara', '2.0'
 end
 
 group :production do

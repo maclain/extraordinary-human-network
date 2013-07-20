@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<div class="row">
+	<div class="span6">
+	  <h1>Welcome to the Extraordinary Human Network</h1>
+	</div>
+	<div class="row">
+		<div class="span6">
+			<h2>Sign up</h2>
+
+			<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+				<%= devise_error_messages! %>
+				
+				<div><%= f.label :name %><br />
+				<%= f.text_field :name %></div>
+			
+			  <div><%= f.label :email %><br />
+			  <%= f.email_field :email, :autofocus => true %></div>
+			
+			  <div class="password"><%= f.label :password %><br />
+			  <%= f.password_field :password %></div>
+			
+			  <div class="password-confirmation"><%= f.label :password_confirmation %><br />
+			  <%= f.password_field :password_confirmation %></div>
+			
+			  <div><%= f.submit "Sign up" %></div>
+			<% end %>
+			
+			<%= render "Human/shared/links" %>
+		
+	</div>
+</div>

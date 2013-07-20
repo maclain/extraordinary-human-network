@@ -1,0 +1,43 @@
+<header class="navbar navbar-inverse">
+	<div class="navbar-inner">
+		<div class="container"> 
+			<nav>
+				
+			<% if human_signed_in? %>
+				<ul class="nav pull-left">
+					<li><%= link_to "EHN", home_path, id: "logo" %></li>
+					<li>Logged in as <strong><%= current_human.name %></strong></li>
+					<li><%= link_to 'Profile',  '#' %></li> 
+					<li><%= link_to 'Settings', edit_human_registration_path %></li> 
+					<li><%= link_to 'Feedback',  '#' %></li>
+				</ul>
+				<ul class="nav pull-right">
+					<li><%= link_to 'Logout',   destroy_human_session_path, method: :delete %></li>
+				</ul>
+			<% else %>
+				<ul class="nav pull-left">
+					<li><%= link_to "EHN", root_path, id: "logo" %></li>
+					<li><%= link_to "Sign in", new_human_session_path %></li>
+				</ul>
+			<% end %>
+						
+				
+			</nav>
+		</div>
+	</div>
+</header> 
+
+
+<!--<div class="navbar navbar-inverse">
+			<ul class="nav">
+				<% if human_signed_in? %>
+					Logged in as <strong><%= current_human.name %></strong>.
+					<%= link_to 'Edit profile', edit_human_registration_path %> |
+					<%= link_to "Logout", destroy_human_session_path, method: :delete %>
+				<% else %>
+					<%= link_to "Sign up", new_human_registration_path %> |
+					<%= link_to "Sign in", new_human_session_path %>
+				<% end %>
+			</ul>
+		</div>	-->
+		
