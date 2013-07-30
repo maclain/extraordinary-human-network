@@ -6,7 +6,19 @@
 		</div>
 		
 		<div class="span10">
-	
+			<h3>Discussion Feed</h3>
+			<%= render 'shared/post_form' %>	
+      <% @posts.each do |post| %>
+      	<li>
+      		<%= post.human.name %>:
+      		<%= post.content %>
+      		<li>
+      			<%= post.comment.content %>
+      			<%= render 'shared/comment_form' %>
+      		</li>
+      		
+      	</li>
+      <% end %>
 		</div>
 	
 	</div>

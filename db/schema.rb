@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130627041437) do
+ActiveRecord::Schema.define(:version => 20130729223916) do
+
+  create_table "comments", :force => true do |t|
+    t.string   "content"
+    t.integer  "post_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "humen", :force => true do |t|
     t.string   "name",                   :default => "", :null => false
@@ -27,9 +34,19 @@ ActiveRecord::Schema.define(:version => 20130627041437) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.integer  "human_id"
   end
 
   add_index "humen", ["email"], :name => "index_humen_on_email", :unique => true
   add_index "humen", ["reset_password_token"], :name => "index_humen_on_reset_password_token", :unique => true
+
+  create_table "posts", :force => true do |t|
+    t.string   "content"
+    t.integer  "human_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "posts", ["human_id", "created_at"], :name => "index_posts_on_human_id_and_created_at"
 
 end

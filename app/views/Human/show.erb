@@ -1,0 +1,21 @@
+<div class="container-fluid">
+	<div class="row-fluid">
+	
+		<div class="span2">
+			<%= render 'layouts/sidebar' %>
+		</div>
+		
+		<div class="span10">
+  	  <% if current_human.posts.any? %>
+      	<h3>Your Posts (<%= current_human.posts.count %>)</h3>
+      	<ol class="posts">
+      <%= render @posts %>
+      	</ol>
+      <%= will_paginate @posts %>
+      <% end %>
+
+	
+		</div>
+	
+	</div>
+</div>

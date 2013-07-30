@@ -1,5 +1,7 @@
 ExtraordinaryHumanNetwork::Application.routes.draw do
   devise_for :humen
+  resources  :humen, only: [:show]
+  resources  :posts, only: [:create, :destroy, :show]
   
   
   # The priority is based upon order of creation:
