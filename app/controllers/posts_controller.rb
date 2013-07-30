@@ -2,17 +2,29 @@ class PostsController < ApplicationController
 	before_filter :authenticate_human!
 	before_filter :correct_human, only: :destroy
 	
+	def index
+		@posts = Post.all
+	end
+	
 	def show
 		@human = current_human
 		@post = current_human.posts.build
 		@posts = current_human.posts.paginate(page: params[:page])
+		#@comment = Comment.new
 	end
+	
+	def new
+		@post = Post.new
+	end
+	
+	def edit
+		@post = Post.find(params[:id])
+	end	
 	
 	def create
 		@post =  current_human.posts.build(post_params)
 		if @post.save	
-			flash[:success] = "Post created!"
-			redirect_to home_path
+			redirect_to home_path, notice: "Post Created!"
 		else
 			@feed_items = []
 			render 'static_pages/home'
